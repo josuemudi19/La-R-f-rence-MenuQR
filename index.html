@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terrasse Bar La Référence - Menu Digital</title>
+    <style>
+        /* CHARTE GRAPHIQUE VIP (Anthracite, Or & Ambre) */
+        :root {
+            --bg-main: #121824;        /* Fond Anthracite Mat (anti-éblouissement) */
+            --bg-card: #1e293b;        /* Bleu Nuit Sombre pour les cartes */
+            --accent-gold: #d97706;    /* Or Chaud (Titres & Bordures VIP) */
+            --accent-amber: #f59e0b;   /* Ambre Scintillant (Prix & Highlights) */
+            --text-main: #ffffff;      /* Blanc Pur pour les noms de plats */
+            --text-sub: #f8fafc;       /* Blanc Cassé pour la lisibilité */
+            --text-muted: #94a3b8;     /* Gris doux pour les descriptions */
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-sub);
+            margin: 0;
+            padding: 0;
+            line-height: 1.5;
+        }
+
+        /* EN-TÊTE / HERO */
+        .header {
+            background: linear-gradient(180deg, rgba(18, 24, 36, 0.95) 0%, var(--bg-main) 100%),
+                        url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80') center/cover;
+            text-align: center;
+            padding: 35px 20px 25px 20px;
+            border-bottom: 2px solid var(--accent-gold);
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 1.6rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--text-main);
+            font-weight: 800;
+        }
+
+        .header .subtitle {
+            margin: 4px 0 15px 0;
+            font-size: 0.85rem;
+            color: var(--accent-amber);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        .welcome-msg {
+            background-color: rgba(30, 41, 59, 0.9);
+            border-left: 3px solid var(--accent-gold);
+            padding: 10px 12px;
+            border-radius: 0 8px 8px 0;
+            font-size: 0.82rem;
+            color: var(--text-sub);
+            text-align: left;
+            margin-top: 10px;
+        }
+
+        /* CONTENEUR PRINCIPAL MOBILE */
+        .container {
+            padding: 15px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        /* TITRES DE CATÉGORIES (ACCENT OR) */
+        .category-title {
+            font-size: 1.05rem;
+            color: var(--accent-gold);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin: 25px 0 12px 0;
+            padding-bottom: 5px;
+            border-bottom: 1px dashed rgba(217, 119, 6, 0.4);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 700;
+        }
+
+        /* CARTES PLATS & BOISSONS */
+        .item-card {
+            background-color: var(--bg-card);
+            border-radius: 10px;
+            padding: 12px 14px;
+            margin-bottom: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 4px;
+        }
+
+        .item-title {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        .badge-pop {
+            background-color: var(--accent-gold);
+            color: #ffffff;
+            font-size: 0.6rem;
+            padding: 2px 6px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            font-weight: 700;
+            margin-left: 5px;
+            vertical-align: middle;
+        }
+
+        /* PRIX (AMBRE SCINTILLANT) */
+        .item-price {
+            font-size: 1.05rem;
+            font-weight: 800;
+            color: var(--accent-amber);
+            white-space: nowrap;
+        }
+
+        .item-desc {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            line-height: 1.35;
+        }
+
+        /* BLOC ACCOMPAGNEMENTS */
+        .sides-box {
+            background-color: rgba(30, 41, 59, 0.7);
+            border: 1px dashed var(--accent-gold);
+            border-radius: 8px;
+            padding: 10px 12px;
+            margin-top: 15px;
+        }
+
+        .sides-box h4 {
+            margin: 0 0 5px 0;
+            font-size: 0.85rem;
+            color: var(--accent-amber);
+            text-transform: uppercase;
+        }
+
+        .sides-box ul {
+            margin: 0;
+            padding-left: 18px;
+            font-size: 0.8rem;
+            color: var(--text-sub);
+        }
+
+        /* PIED DE PAGE & INFOS */
+        .footer-info {
+            background-color: var(--bg-card);
+            border-radius: 10px;
+            padding: 15px;
+            margin-top: 30px;
+            margin-bottom: 20px;
+            text-align: center;
+            border: 1px solid rgba(217, 119, 6, 0.3);
+        }
+
+        .footer-info p {
+            margin: 4px 0;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .footer-info strong {
+            color: var(--accent-amber);
+        }
+
+        .brand-credit {
+            text-align: center;
+            font-size: 0.75rem;
+            color: #64748b;
+            padding-bottom: 25px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HERO HEADER -->
+    <div class="header">
+        <h1>LA RÉFÉRENCE</h1>
+        <div class="subtitle">Terrasse & Bar Lounge</div>
+        
+        <div class="welcome-msg">
+            <strong>Mboté & Bienvenue !</strong> Prenez place, détendez-vous et laissez-vous porter par les bonnes vibrations de la Rumba. Vos commandes sont servies fraîches et préparées à la minute.
+        </div>
+    </div>
+
+    <!-- CONTENU DU MENU -->
+    <div class="container">
+
+        <!-- CATÉGORIE 1 -->
+        <div class="category-title">🔥 Du Grill au Plateau</div>
+
+        <div class="item-card">
+            <div class="item-header">
+                <div class="item-title">Poulet Mayo <span class="badge-pop">Top</span></div>
+                <div class="item-price">20 000 Fc</div>
+            </div>
+            <div class="item-desc">Mariné aux condiments locaux, grillé au charbon de bois et servi croustillant. Idéal à partager.</div>
+        </div>
+
+        <div class="item-card">
+            <div class="item-header">
+                <div class="item-title">Ntaba(Chèvre Grillé)</div>
+                <div class="item-price">1kg 30 000 Fc</div>
+            </div>
+            <div class="item-desc">Découpe de chèvre tendre, grillée à point avec oignons croquants et pointe de piment doux.</div>
+        </div>
+
+        <div class="item-card">
+            <div class="item-header">
+                <div class="item-title">Kamundele Brochettes</div>
+                <div class="item-price">9000 Fc</div>
+            </div>
+            <div class="item-desc">Portion de 3 brochettes de bœuf juteuses saisies à la flamme, servies avec leur jus pimenté.</div>
+        </div>
+
+        <div class="item-card">
+            <div class="item-header">
+                <div class="item-title">Liboke</div>
+                <div class="item-price">30 000 Fc</div>
+            </div>
+            <div class="item-desc">Poisson frais cuit à la vapeur dans des feuilles de bananier, infusé au citron vert et épices.</div>
+        </div>
+
+        <!-- ACCOMPAGNEMENTS -->
+        <div class="sides-box">
+            <h4>Accompagnements au choix :</h4>
+            <ul>
+                <li>Bananes plantain (Makemba) dorées</li>
+                <li>Chikwangue</li>
+                <li>Frites de pommes de terre & Mayonnaise</li>
+            </ul>
+        </div>
+
+        <!-- CATÉGORIE 2 -->
+        <div class="category-title">🍺 Soif de Fraîcheur</div>
+
+        <div class="item-card">
+            <div class="item-header">
+                <div class="item-title">Bières Gandes</div>
+                <div class="item-price">7000 Fc</div>
+            </div>
+            <div class="item-desc">Primus, Skol, Tembo, Nkoyi — Servies extra fraîches ("Chambre froide").</div>
+        </div>
+
+        <div class="item-card">
+            <div class="item-header">
+                <div class="item-title">Castel,Beaufort,Heineken</div>
+                <div class="item-price">4000 Fc</div>
+            </div>
+
+        <div class="item-card">
+            <div class="item-header">
+                <div class="item-title">Likofi,Turbo,Legende</div>
+                <div class="item-price">3000 Fc</div>
+            </div>
+
+        <div class="item-card">
+            <div class="item-header">
+                <div class="item-title">Softs & Jus Naturels</div>
+                <div class="item-price">3000 Fc</div>
+            </div>
+            <div class="item-desc">Sucreries locales</div>
+        </div>
+
+        <!-- CATÉGORIE 3 -->
+        <div class="category-title">🧆 Pour Grignoter</div>
+
+        <div class="item-card">
+            <div class="item-header">
+                <div class="item-title">Mikate Chauds au Sucre</div>
+                <div class="item-price">2000 Fc</div>
+            </div>
+            <div class="item-desc">Beignets kinois moelleux et croustillants (Portion de 10).</div>
+        </div>
+
+        <div class="item-card">
+            <div class="item-header">
+                <div class="item-title">Samoussa</div>
+                <div class="item-price">5000 Fc</div>
+            </div>
+            <div class="item-desc">6 portions</div>
+        </div>
+
+        <!-- FOOTER & INFOS -->
+        <div class="footer-info">
+            <p>🙋‍♂️ <strong>Une commande ?</strong> Levez simplement la main,notre équipe arrive</p>
+            <p>📶 <strong>Wi-Fi Gratuit :</strong> <code>LaReference_Guest</code> | <strong>Pass :</strong> <code>Rumba2026</code></p>
+            <p>📸 <strong>Suivez-nous :</strong> @LaReference_Kin</p>
+        </div>
+
+        <div class="brand-credit">
+            Menu numérique propulsé par <strong>Big Jos Business Digitalisons-nous</strong>
+        </div>
+
+    </div>
+
+</body>
+</html>
